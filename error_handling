@@ -1,0 +1,23 @@
+$int = 22121
+$string = 'server'
+
+#try addition of these two
+
+try {
+$sum = $int + $string
+$sum
+} catch {
+    Write-Host "We have this error: $_" -ForegroundColor DarkGreen -BackgroundColor Yellow
+}
+
+try {
+
+    $sum = $int - $string
+    $sum
+} catch {
+
+    Write-Host "We have this error: $_ 
+                                    `n This is the exact line where the error occurred: $($_.invocationinfo.Line)
+                                    `n This is the path to the script: $($_.invocationinfo.PSCommandPath)
+                                    `n This is the line where the error occurred: $($_.invocationInfo.ScriptLineNumber)" -ForegroundColor DarkMagenta -BackgroundColor Yellow
+}
